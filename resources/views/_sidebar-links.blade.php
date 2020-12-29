@@ -13,7 +13,8 @@
         href="#">lists</a></li>
     <li><a class="font-bold text-lg mb-4 block"
          href="{{ route('profile', auth()->user()) }}">profile</a></li>
-     <li><form action="/logout" method="POST">
+    
+         <li><form action="/logout" method="POST">
           @csrf
           
           <button>logout</button>

@@ -11,7 +11,8 @@
         <footer class="flex justify-between">
             <img src="{{ auth()->user()->avatar }}" 
               alt="your avatar"
-                class="rounded-full mr-2">
+              class="rounded-full mr-2"
+                width="30px" height="30px">
              <button type="submit"
              class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white">tweet</button>
         </footer>     

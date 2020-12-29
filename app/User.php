@@ -15,6 +15,11 @@ class User extends Authenticatable
         return 'name';
     }
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
     public function path($append = ''){
 	
 		$path = route('profile', $this->username);
@@ -31,7 +36,8 @@ class User extends Authenticatable
     public function timeline(){
 		
         $friends = $this->follows()->pluck('id');
-        return Tweet::whereIn('user_id', $friends)->orWhere('user_id', $this->id)->latest()->get();
+        return Tweet::whereIn('user_id', $friends)->orWhere('user_id', $this->id)
+        ->withLikes->latest()->get();
     }
 
     public function setPasswordAttribute($value)
